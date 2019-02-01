@@ -30,7 +30,7 @@ import (
 	"strconv"
 	"strings"
 	"time"
-
+	
 	"github.com/google/go-querystring/query"
 	"golang.org/x/oauth2"
 )
@@ -318,6 +318,7 @@ type Client struct {
 	Projects              *ProjectsService
 	ProjectMembers        *ProjectMembersService
 	ProjectBadges         *ProjectBadgesService
+	ProjectImportExport   *ProjectImportExportService
 	ProjectSnippets       *ProjectSnippetsService
 	ProjectVariables      *ProjectVariablesService
 	ProtectedBranches     *ProtectedBranchesService
@@ -459,6 +460,7 @@ func newClient(httpClient *http.Client) *Client {
 	c.Projects = &ProjectsService{client: c}
 	c.ProjectMembers = &ProjectMembersService{client: c}
 	c.ProjectBadges = &ProjectBadgesService{client: c}
+	c.ProjectImportExport = &ProjectImportExportService{client: c}
 	c.ProjectSnippets = &ProjectSnippetsService{client: c}
 	c.ProjectVariables = &ProjectVariablesService{client: c}
 	c.ProtectedBranches = &ProtectedBranchesService{client: c}
